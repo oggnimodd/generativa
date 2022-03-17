@@ -51,7 +51,7 @@ export const NavItemsMobile = styled(Wrapper)`
 
   transition : opacity ease-in-out 200ms;
 
-  ${({ showNavigation }) => (showNavigation ? tw`opacity-100` : tw`opacity-0`)}
+  ${({ showNavigation }) => (showNavigation ? tw`opacity-100 pointer-events-auto` : tw`opacity-0 pointer-events-none`)}
 
   ${NavItem}{
     ${tw`

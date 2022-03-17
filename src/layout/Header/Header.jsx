@@ -35,7 +35,7 @@ const Header = () => {
   }, []);
 
   return (
-    <HeaderWrapper>
+    <HeaderWrapper id="header" as="header">
       <Brand />
       <NavigationWrapper>
 
