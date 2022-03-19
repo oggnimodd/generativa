@@ -1,10 +1,15 @@
 import React from 'react';
 import { BrandWrapper } from './Brand.style';
+import Link from '../RouterLink';
 
 const Brand = () => {
   return (
     <BrandWrapper>
-      Generativa
+      <Link
+        to="/"
+      >
+        Generativa
+      </Link>
     </BrandWrapper>
   );
 };

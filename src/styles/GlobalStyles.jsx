@@ -8,6 +8,7 @@ const CustomStyles = createGlobalStyle`
       antialiased
       text-primary-text
       bg-primary
+      font-primary
     `}
   }
 `;

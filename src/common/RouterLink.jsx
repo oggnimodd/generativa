@@ -16,6 +16,7 @@ export const NavLink = (props) => {
     <RRNavLink
       onClick={() => scrollToTop(handleClick)}
       {...rest}
+      activeClassName="link-active"
     >
       {children}
     </RRNavLink>

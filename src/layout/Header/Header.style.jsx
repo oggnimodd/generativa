@@ -5,7 +5,6 @@ export const HeaderWrapper = styled(Wrapper)`
   ${tw`
     bg-primary 
     py-2
-    bg-blue-600
     flex 
     justify-between
     relative
@@ -28,12 +27,16 @@ export const NavItems = styled.span`
     items-center
     gap-x-12
   `}
+
+  .link-active{
+    ${tw`
+      text-accent
+    `}
+  }
 `;
 
 export const NavItem = styled.div`
-  ${tw`
-    text-lg
-  `}
+ 
 `;
 
 export const NavItemsMobile = styled(Wrapper)`
@@ -47,6 +50,7 @@ export const NavItemsMobile = styled(Wrapper)`
     w-full
     bg-primary
     pt-2
+    z-50
   `}
 
   transition : opacity ease-in-out 200ms;
