@@ -10,6 +10,8 @@ export const RandomPaletteButton = styled.button`
     bg-accent 
     rounded-sm
     text-primary 
+    text-sm 
+    font-semibold
   `}
 
   p {
