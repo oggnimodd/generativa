@@ -1,17 +1,14 @@
 import React from 'react';
 import { ControlHeader } from '../../common/ControlHeader';
 import Select from '../../common/Select/Select';
-
-const repeatModeOptions = [
-  { value: 'no-repeat', label: 'No Repeat' },
-  { value: 'repeat', label: 'Repeat XY' },
-  { value: 'repeat-x', label: 'Repeat X' },
-  { value: 'repeat-y', label: 'Repeat Y' },
-];
+import { patterns } from '../../config/patterns';
+import { settingsSelector, settingsMethod } from '../../store/useSettingsStore';
 
 const PatternTypeControl = () => {
+  const usePattern = settingsMethod('usePattern');
+  const activePattern = settingsSelector('pattern');
   const handleChange = (e) => {
-    console.log(e);
+    usePattern(e.value);
   };
 
   return (
@@ -20,10 +17,10 @@ const PatternTypeControl = () => {
         Choose Pattern
       </ControlHeader>
       <Select
-        value="repeat"
-        options={repeatModeOptions}
-        labelKey="label"
-        valueKey="value"
+        value={activePattern}
+        options={patterns}
+        labelKey="name"
+        valueKey="name"
         name="vertical-alignment"
         handleChange={handleChange}
       />

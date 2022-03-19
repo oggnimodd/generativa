@@ -8,14 +8,11 @@ import {
 } from './PalettePicker.style';
 import useOnClickOutside from '../../hooks/useClickOutside';
 import PaletteList from './PaletteList';
-
-const activeColors = [
-  '#3E494D',
-  '#93515D',
-  '#E85165',
-];
+import { settingsSelector } from '../../store/useSettingsStore';
 
 const PalettePicker = () => {
+  const activePalette = settingsSelector('activePalette');
+
   const pickerRef = useRef();
   const [showList, setShowList] = useState(false);
 
@@ -37,7 +34,7 @@ const PalettePicker = () => {
           pointerEvents: showList ? 'none' : 'auto',
         }}
       >
-        <PalettePreview colors={activeColors} />
+        <PalettePreview colors={activePalette} />
         <ArrowDownIcon><MdKeyboardArrowDown /></ArrowDownIcon>
       </ActiveValue>
       {showList && <PaletteList ref={pickerRef} />}

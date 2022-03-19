@@ -2,6 +2,7 @@ import React from 'react';
 import short from 'short-uuid';
 import PalettePreview from '../PalettePreview/PalettePreview';
 import { PaletteList as StyledList } from './PalettePicker.style';
+import { settingsMethod, settingsSelector } from '../../store/useSettingsStore';
 
 const paletteCollection = [
   ['#3E494D', '#93515D', '#E85165'],
@@ -15,14 +16,20 @@ const paletteCollection = [
 ];
 
 const PaletteList = React.forwardRef((props, ref) => {
-  const applyPalette = (colors) => {
-    console.log(colors);
-  };
+  // Method
+  const applyPalette = settingsMethod('applyPalette');
+
+  // State
+  const paletteList = settingsSelector('paletteList');
+
+  // const applyPalette = (colors) => {
+  //   console.log(colors);
+  // };
 
   return (
     <StyledList ref={ref}>
       {
-        paletteCollection?.length > 0 && paletteCollection.map((colors) => {
+        paletteList?.length > 0 && paletteList.map((colors) => {
           return (
             <PalettePreview
               onClick={() => applyPalette(colors)}

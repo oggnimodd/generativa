@@ -1,4 +1,6 @@
-import React, { useState, useRef, useLayoutEffect } from 'react';
+import React, {
+  useState, useRef, useLayoutEffect,
+} from 'react';
 import { HexColorPicker, HexColorInput } from 'react-colorful';
 import { AiOutlineClose } from 'react-icons/ai';
 import {
@@ -11,8 +13,9 @@ import {
 import useOnClickOutside from '../../hooks/useClickOutside';
 
 const ColorPicker = ({
-  id, color, removeColor, changeColor,
+  id, color: initialColor, removeColor, changeColor,
 }) => {
+  const [color, setColor] = useState(initialColor);
   const [open, setOpen] = useState(false);
   const pickerRef = useRef();
   const wrapperRef = useRef();
@@ -51,6 +54,14 @@ const ColorPicker = ({
     }
   }, [open]);
 
+  const handleChange = (val) => {
+    // Change global state
+    changeColor(val);
+
+    // Change local state too
+    setColor(val);
+  };
+
   useOnClickOutside(pickerRef, closePicker);
 
   return (
@@ -76,12 +87,12 @@ const ColorPicker = ({
         >
           <HexColorPicker
             color={color}
-            onChange={changeColor}
+            onChange={handleChange}
           />
           <ColorInputContainer>
             <HexColorInput
               color={color}
-              onChange={changeColor}
+              onChange={handleChange}
             />
           </ColorInputContainer>
         </PickerWrapper>

@@ -1,40 +1,26 @@
-import React, { useState } from 'react';
+import React, { useMemo } from 'react';
 import short from 'short-uuid';
 import { BiPlus } from 'react-icons/bi';
 import { ColorList, NewColorButton } from './ColorsControl.style';
 import { ControlHeader } from '../../common/ControlHeader';
 import ColorPicker from '../../common/ColorPicker/ColorPicker';
-
-const MAX_COLORS = 10;
-const MIN_COLORS = 3;
+import { settingsSelector, settingsMethod } from '../../store/useSettingsStore';
 
 const ColorsControl = () => {
-  const [colors, setColors] = useState([
-    '#4F76A0',
-    '#4ECDC4',
-    '#C7F464',
-    '#FF6B6B',
-    '#FF6B6B',
-    '#847373',
-    '#ffd06b',
-  ]);
+  // method
+  const addColor = settingsMethod('addColor');
+  const removeColor = settingsMethod('removeColor');
+  const changeColor = settingsMethod('changeColor');
 
-  const addColor = () => {
-    const newColor = colors[colors.length - 1];
-    const newColors = [...colors, newColor];
+  // statstate
+  const colors = settingsSelector('activePalette');
+  const maxColors = settingsSelector('maxColors');
+  const pattern = settingsSelector('pattern');
+  const paletteTimeStamp = settingsSelector('paletteTimeStamp');
 
-    if(newColors.length <= MAX_COLORS) {
-      setColors(newColors);
-    }
-  };
-
-  const removeColor = (id) => {
-    const tempColors = [...colors];
-    tempColors.splice(id, 1);
-    setColors(tempColors);
-  };
-
-  return (
+  // this memoization  prevent rerendering from changing individual color.
+  // to show color change in the individual color, need to use local state on every item
+  return useMemo(() => (
     <>
       <ControlHeader>Choose Colors</ControlHeader>
       <ColorList>
@@ -46,16 +32,22 @@ const ColorsControl = () => {
                 color={color}
                 id={id}
                 removeColor={removeColor}
+                changeColor={(e) => changeColor(e, id)}
               />
             );
           })
         }
-        <NewColorButton onClick={addColor}>
-          <BiPlus />
-        </NewColorButton>
+        {
+          colors.length < maxColors
+          && (
+          <NewColorButton onClick={addColor}>
+            <BiPlus />
+          </NewColorButton>
+          )
+        }
       </ColorList>
     </>
-  );
+  ), [pattern, colors.length, paletteTimeStamp]);
 };
 
 export default ColorsControl;

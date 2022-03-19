@@ -5,6 +5,7 @@ import Header from './layout/Header/Header';
 import Editor from './pages/Editor/Editor';
 import Showcase from './pages/Showcase/Showcase';
 import About from './pages/About/About';
+import { settingsMethod } from './store/useSettingsStore';
 
 const App = () => {
   return (
