@@ -1,1 +1,0 @@
-# all small components that reuse almost every time
