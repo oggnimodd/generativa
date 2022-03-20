@@ -3,7 +3,7 @@ import produce from 'immer';
 import { patterns } from '../config/patterns';
 import { epochTime } from '../util/epochTime';
 
-const defaultPattern = patterns[patterns.map((i) => i.name).indexOf('scribble')];
+const defaultPattern = patterns[patterns.map((i) => i.name).indexOf('basic-circle')];
 const {
   name, numOfTiles, palette, numOfColors,
 } = defaultPattern;
