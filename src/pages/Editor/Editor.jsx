@@ -1,6 +1,8 @@
 import React, { useLayoutEffect, useState } from 'react';
 import { EditorWrapper } from './Editor.style';
 import Sidebar from '../../layout/Sidebar/Sidebar';
+import CanvasArea from '../../layout/CanvasArea/CanvasArea';
+import KeyBindings from '../../common/KeyBindings';
 
 const Editor = () => {
   const [headerHeight, setHeaderHeight] = useState();
@@ -13,7 +15,9 @@ const Editor = () => {
 
   return (
     <EditorWrapper headerHeight={headerHeight}>
+      <KeyBindings />
       <Sidebar />
+      <CanvasArea />
     </EditorWrapper>
   );
 };

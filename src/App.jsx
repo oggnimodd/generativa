@@ -1,11 +1,10 @@
 /* eslint-disable react/jsx-max-props-per-line */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import Header from './layout/Header/Header';
 import Editor from './pages/Editor/Editor';
 import Showcase from './pages/Showcase/Showcase';
 import About from './pages/About/About';
-import { settingsMethod } from './store/useSettingsStore';
 
 const App = () => {
   return (

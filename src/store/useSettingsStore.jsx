@@ -3,7 +3,7 @@ import produce from 'immer';
 import { patterns } from '../config/patterns';
 import { epochTime } from '../util/epochTime';
 
-const defaultPattern = patterns[patterns.map((i) => i.name).indexOf('basic-circle')];
+const defaultPattern = patterns[patterns.map((i) => i.name).indexOf('scribble')];
 const {
   name, numOfTiles, palette, numOfColors,
 } = defaultPattern;
@@ -18,6 +18,7 @@ const initialSettings = {
   },
   activePalette: palette.default,
   paletteTimeStamp: epochTime(),
+  refreshTimeStamp: epochTime(),
   minColors: numOfColors.max,
   maxColors: numOfColors.min,
   paletteList: palette.list,
@@ -119,6 +120,13 @@ const changeTiles = (set, get, options) => {
   }));
 };
 
+// Refresh pattern
+const refreshPattern = (set) => {
+  return set(produce((draft) => {
+    draft.settings.refreshTimeStamp = epochTime();
+  }));
+};
+
 const useSettingsStore = create((set, get) => {
   return {
     settings: initialSettings,
@@ -129,6 +137,7 @@ const useSettingsStore = create((set, get) => {
     changeColor: (newColor, id) => changeColor(set, newColor, id),
     changeTiles: (options) => changeTiles(set, get, options),
     applyPalette: (palette) => applyPalette(set, palette),
+    refreshPattern: () => refreshPattern(set),
   };
 });
 

@@ -2,9 +2,9 @@ export const patterns = [
   {
     name: 'kana',
     numOfTiles: {
-      default: 20,
+      default: 12,
       min: 1,
-      max: 25,
+      max: 20,
     },
     numOfColors: {
       min: 3,
@@ -40,11 +40,12 @@ export const patterns = [
     },
     palette: {
       default: [
-        '#D9CBC2',
-        '#77A9C2',
+        '#E7CCA9',
+        '#0C344E',
+        '#C7872A',
       ],
       list: [
-        ['#c2fafc', '#88afb0', '#f0ffff'],
+        ['#E7CCA9', '#0C344E', '#C7872A'],
         ['#2aa1cc', '#437237', '#2e2652'],
         ['#408ba7', '#39ac17', '#4b2b2f'],
         ['#408ba7', '#39ac17', '#4b2b2f', '#2e2652'],
@@ -72,6 +73,58 @@ export const patterns = [
       ],
       list: [
         ['#3E494D', '#93515D', '#E85165'],
+        ['#2aa1cc', '#437237', '#2e2652'],
+        ['#408ba7', '#39ac17', '#4b2b2f'],
+        ['#408ba7', '#39ac17', '#4b2b2f', '#2e2652'],
+        ['#355a68', '#748a6d', '#9c1928', '#2e2652'],
+      ],
+    },
+  },
+  {
+    name: 'chain-of-circle',
+    numOfTiles: {
+      default: 10,
+      min: 1,
+      max: 12,
+    },
+    numOfColors: {
+      min: 4,
+      max: 4,
+    },
+    palette: {
+      default: [
+        '#4C5576',
+        '#77A9C2',
+        '#D9CBC2',
+        '#77A9C2'],
+      list: [
+        ['#4C5576', '#77A9C2', '#D9CBC2', '#77A9C2'],
+        ['#2aa1cc', '#437237', '#2e2652'],
+        ['#408ba7', '#39ac17', '#4b2b2f'],
+        ['#408ba7', '#39ac17', '#4b2b2f', '#2e2652'],
+        ['#355a68', '#748a6d', '#9c1928', '#2e2652'],
+      ],
+    },
+  },
+  {
+    name: 'half-and-quarter',
+    numOfTiles: {
+      default: 6,
+      min: 1,
+      max: 12,
+    },
+    numOfColors: {
+      min: 4,
+      max: 10,
+    },
+    palette: {
+      default: [
+        '#F15638',
+        '#A17552',
+        '#EBE8D7',
+        '#0F0426'],
+      list: [
+        ['#4C5576', '#77A9C2', '#D9CBC2', '#77A9C2'],
         ['#2aa1cc', '#437237', '#2e2652'],
         ['#408ba7', '#39ac17', '#4b2b2f'],
         ['#408ba7', '#39ac17', '#4b2b2f', '#2e2652'],
