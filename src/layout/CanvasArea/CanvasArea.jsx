@@ -8,6 +8,7 @@ import Scribble from '../../patterns/Scribble/Scribble';
 import Kana from '../../patterns/Kana/Kana';
 import ChainOfCircle from '../../patterns/ChainOfCircle/ChainOfCircle';
 import HalfAndQuarter from '../../patterns/HalfAndQuarter/HalfAndQuarter';
+import SquareAndCircle from '../../patterns/SquareAndCircle/SquareAndCircle';
 
 const CanvasArea = () => {
   // Method
@@ -62,6 +63,9 @@ const CanvasArea = () => {
           </Case>
           <Case condition={pattern === 'half-and-quarter'}>
             <HalfAndQuarter />
+          </Case>
+          <Case condition={pattern === 'square-and-circle'}>
+            <SquareAndCircle />
           </Case>
         </Switch>
       </CanvasPreview>

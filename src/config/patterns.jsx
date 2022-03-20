@@ -132,4 +132,30 @@ export const patterns = [
       ],
     },
   },
+  {
+    name: 'square-and-circle',
+    numOfTiles: {
+      default: 6,
+      min: 1,
+      max: 12,
+    },
+    numOfColors: {
+      min: 4,
+      max: 10,
+    },
+    palette: {
+      default: [
+        '#F15638',
+        '#A17552',
+        '#EBE8D7',
+        '#0F0426'],
+      list: [
+        ['#4C5576', '#77A9C2', '#D9CBC2', '#77A9C2'],
+        ['#2aa1cc', '#437237', '#2e2652'],
+        ['#408ba7', '#39ac17', '#4b2b2f'],
+        ['#408ba7', '#39ac17', '#4b2b2f', '#2e2652'],
+        ['#355a68', '#748a6d', '#9c1928', '#2e2652'],
+      ],
+    },
+  },
 ];
