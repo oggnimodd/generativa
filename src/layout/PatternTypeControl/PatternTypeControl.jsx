@@ -1,14 +1,15 @@
 import React from 'react';
 import { ControlHeader } from '../../common/ControlHeader';
-import Select from '../../common/Select/Select';
+// import Select from '../../common/Select/Select';
 import { patterns } from '../../config/patterns';
 import { settingsSelector, settingsMethod } from '../../store/useSettingsStore';
+import SelectPattern from '../../common/SelectPattern/SelectPattern';
 
 const PatternTypeControl = () => {
   const usePattern = settingsMethod('usePattern');
   const activePattern = settingsSelector('pattern');
-  const handleChange = (e) => {
-    usePattern(e.value);
+  const handleChange = (val) => {
+    usePattern(val);
   };
 
   return (
@@ -16,12 +17,9 @@ const PatternTypeControl = () => {
       <ControlHeader>
         Choose Pattern
       </ControlHeader>
-      <Select
+      <SelectPattern
         value={activePattern}
         options={patterns}
-        labelKey="name"
-        valueKey="name"
-        name="vertical-alignment"
         handleChange={handleChange}
       />
     </>
