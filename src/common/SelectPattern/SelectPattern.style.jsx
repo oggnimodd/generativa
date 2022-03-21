@@ -26,7 +26,10 @@ export const ActiveValue = styled.div`
 export const Icon = styled.div`
   ${tw`
     text-lg
+    opacity-50
   `}
+
+  ${({ open }) => open && tw`opacity-100`}
 `;
 
 export const PatternListWraper = styled.ul`

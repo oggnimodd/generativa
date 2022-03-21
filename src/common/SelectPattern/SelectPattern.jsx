@@ -37,7 +37,7 @@ const SelectPattern = ({
         <span>
           {formatName(value)}
         </span>
-        <Icon>
+        <Icon open={open}>
           <IoIosArrowDown />
         </Icon>
       </ActiveValue>
