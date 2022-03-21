@@ -63,7 +63,7 @@ const CanvasArea = () => {
           <Case condition={pattern === 'kana'}>
             <Kana />
           </Case>
-          <Case condition={pattern === 'chain-of-circle'}>
+          <Case condition={pattern === 'chain-of-circles'}>
             <ChainOfCircle />
           </Case>
           <Case condition={pattern === 'half-and-quarter'}>

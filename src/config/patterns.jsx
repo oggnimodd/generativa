@@ -32,7 +32,7 @@ export const patterns = [
     numOfTiles: {
       default: 6,
       min: 1,
-      max: 25,
+      max: 15,
     },
     numOfColors: {
       min: 3,
@@ -58,7 +58,7 @@ export const patterns = [
     numOfTiles: {
       default: 6,
       min: 1,
-      max: 30,
+      max: 20,
     },
     numOfColors: {
       min: 4,
@@ -81,7 +81,7 @@ export const patterns = [
     },
   },
   {
-    name: 'chain-of-circle',
+    name: 'chain-of-circles',
     numOfTiles: {
       default: 10,
       min: 1,
@@ -189,7 +189,7 @@ export const patterns = [
     numOfTiles: {
       default: 6,
       min: 1,
-      max: 12,
+      max: 15,
     },
     numOfColors: {
       min: 5,
@@ -215,7 +215,7 @@ export const patterns = [
     numOfTiles: {
       default: 6,
       min: 1,
-      max: 12,
+      max: 15,
     },
     numOfColors: {
       min: 5,
