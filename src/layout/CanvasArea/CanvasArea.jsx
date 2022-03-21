@@ -9,6 +9,9 @@ import Kana from '../../patterns/Kana/Kana';
 import ChainOfCircle from '../../patterns/ChainOfCircle/ChainOfCircle';
 import HalfAndQuarter from '../../patterns/HalfAndQuarter/HalfAndQuarter';
 import SquareAndCircle from '../../patterns/SquareAndCircle/SquareAndCircle';
+import Triangles from '../../patterns/Triangles/Triangles';
+import ThreeCircles from '../../patterns/ThreeCircles/ThreeCircles';
+import Squares from '../../patterns/Squares/Squares';
 
 const CanvasArea = () => {
   // Method
@@ -49,6 +52,8 @@ const CanvasArea = () => {
         ref={canvasPreviewRef}
       >
         <Switch>
+
+          {/* TODO : make this a loop */}
           <Case condition={pattern === 'basic-circle'}>
             <BasicCircle />
           </Case>
@@ -66,6 +71,15 @@ const CanvasArea = () => {
           </Case>
           <Case condition={pattern === 'square-and-circle'}>
             <SquareAndCircle />
+          </Case>
+          <Case condition={pattern === 'triangles'}>
+            <Triangles />
+          </Case>
+          <Case condition={pattern === 'three-circles'}>
+            <ThreeCircles />
+          </Case>
+          <Case condition={pattern === 'squares'}>
+            <Squares />
           </Case>
         </Switch>
       </CanvasPreview>
