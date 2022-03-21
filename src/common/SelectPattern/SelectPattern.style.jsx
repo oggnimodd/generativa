@@ -29,7 +29,7 @@ export const Icon = styled.div`
   `}
 `;
 
-export const PatternList = styled.div`
+export const PatternListWraper = styled.ul`
   ${tw`
     absolute  
     top-full 
@@ -61,7 +61,7 @@ export const PatternList = styled.div`
   }
 `;
 
-export const PatternItemThumbnail = styled.ul`
+export const PatternItemThumbnail = styled.div`
   ${tw`
     min-w-[70px]
     w-[70px]
@@ -79,7 +79,7 @@ export const PatternItemThumbnail = styled.ul`
   }
 `;
 
-export const PatternName = styled.li`
+export const PatternName = styled.p`
   ${tw`
     px-2
     capitalize 
@@ -87,7 +87,7 @@ export const PatternName = styled.li`
   `}
 `;
 
-export const PatternItem = styled.div`
+export const PatternItem = styled.li`
   ${tw`
     flex 
     items-center 
@@ -97,7 +97,8 @@ export const PatternItem = styled.div`
     select-none
   `}
 
-  &:hover ${PatternName}{
+  &:hover ${PatternName},
+  &.pattern-active ${PatternName}{
     ${tw`
       text-accent
     `}

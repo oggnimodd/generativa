@@ -4,17 +4,12 @@ import {
   ActiveValue,
   SelectPatternContainer,
   Icon,
-  PatternList,
-  PatternItem,
-  PatternItemThumbnail,
-  PatternName,
+  PatternListWraper,
   Scrollbars,
 } from './SelectPattern.style';
 import useClickOutside from '../../hooks/useClickOutside';
-
-const formatName = (name) => {
-  return name.replaceAll('-', ' ');
-};
+import PatternList from './PatternList';
+import { formatName } from '../../util/formatName';
 
 const SelectPattern = ({
   value,
@@ -49,7 +44,7 @@ const SelectPattern = ({
 
       {
         open && (
-          <PatternList ref={listRef}>
+          <PatternListWraper ref={listRef}>
             <Scrollbars
               renderThumbVertical={(props) => (
                 <div
@@ -58,28 +53,13 @@ const SelectPattern = ({
                 />
               )}
             >
-              {
-            options?.length && options.map((item) => {
-              return (
-                <PatternItem
-                  onClick={() => handleChange(item.name)}
-                  key={`pattern-${item.name}`}
-                >
-                  <PatternItemThumbnail>
-                    <img
-                      src="/thumbnails/basic-circle.png"
-                      alt="Item"
-                    />
-                  </PatternItemThumbnail>
-                  <PatternName>
-                    {formatName(item.name)}
-                  </PatternName>
-                </PatternItem>
-              );
-            })
-          }
+              <PatternList
+                options={options}
+                handleChange={handleChange}
+                value={value}
+              />
             </Scrollbars>
-          </PatternList>
+          </PatternListWraper>
         )
       }
 
