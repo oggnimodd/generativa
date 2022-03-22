@@ -24,7 +24,7 @@ const SelectPattern = ({
 
   const closeList = () => setOpen(false);
 
-  useClickOutside(listRef, closeList);
+  useClickOutside(listRef, closeList, open);
 
   return (
     <SelectPatternContainer>

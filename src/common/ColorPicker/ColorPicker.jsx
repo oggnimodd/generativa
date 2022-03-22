@@ -19,7 +19,7 @@ const ColorPicker = ({
   const [open, setOpen] = useState(false);
   const pickerRef = useRef();
   const wrapperRef = useRef();
-  const [reposition, setReposition] = useState(false);
+  const [repositionY, setRepositionY] = useState(false);
 
   const openPicker = () => {
     setOpen(true);
@@ -34,17 +34,21 @@ const ColorPicker = ({
     // Reposition picker if it's too down
     const watchPosition = () => {
       const {
-        height, top,
+        height, top, left, width,
       } = wrapperRef.current.getBoundingClientRect();
+      const { height: pickerHeight } = pickerRef.current.getBoundingClientRect();
 
       const scrollTop = window.pageYOffset || document.body.scrollTop;
-      const bottomIndicator = scrollTop + top + height + 250;
+
+      const bottomIndicator = scrollTop + top + height + pickerHeight;
+
       const viewportHeight = window.innerHeight;
 
+      // RepositionY
       if(bottomIndicator > viewportHeight) {
-        setReposition(true);
+        setRepositionY(true);
       }else{
-        setReposition(false);
+        setRepositionY(false);
       }
     };
 
@@ -62,12 +66,13 @@ const ColorPicker = ({
     setColor(val);
   };
 
-  useOnClickOutside(pickerRef, closePicker);
+  useOnClickOutside(pickerRef, closePicker, open, false);
 
   return (
     <ColorPickerWrapper ref={wrapperRef}>
       <Item
         onClick={openPicker}
+        onTouchEnd={(e) => { open && e.preventDefault(); }}
         style={{
           backgroundColor: color,
           pointerEvents: open ? 'none' : 'auto',
@@ -86,7 +91,7 @@ const ColorPicker = ({
         open
         && (
         <PickerWrapper
-          reposition={reposition}
+          repositionY={repositionY}
           ref={pickerRef}
         >
           <HexColorPicker

@@ -4,11 +4,12 @@ export const PickerWrapper = styled.div`
   ${tw`
     mt-1
     absolute 
-    left-0 
     z-[90]
+    left-2
+    md:left-0
   `}
   
-  ${({ reposition }) => (reposition ? tw`bottom-full` : tw`top-full`)}
+  ${({ repositionY }) => (repositionY ? tw`bottom-full` : tw`top-full`)}
 
   .react-colorful__last-control{
     ${tw`
@@ -86,7 +87,7 @@ export const ColorPickerWrapper = styled.div`
     flex 
     items-center 
     justify-center
-    relative
+    md:relative
   `}
 
 

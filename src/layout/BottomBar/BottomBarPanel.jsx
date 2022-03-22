@@ -4,6 +4,7 @@ import { Panel } from './BottomBar.style';
 import MobileEditorButtons from '../../common/MobileEditorButtons/MobileEditorButtons';
 import MobilePaletteControl from '../MobilePaletteControl/MobilePaletteControl';
 import MobileTilesControl from '../MobileTilesControl/MobileTilesControl';
+import MobileColorsControl from '../MobileColorsControl/MobileColorsControl';
 
 const BottomBarPanel = ({ activeTab, resetActiveTab }) => {
   if(!activeTab) return null;
@@ -24,7 +25,7 @@ const BottomBarPanel = ({ activeTab, resetActiveTab }) => {
           <MobileTilesControl />
         </Case>
         <Case condition={activeTab === 'colors'}>
-          Colors
+          <MobileColorsControl />
         </Case>
         <Case condition={activeTab === 'palette'}>
           Palette

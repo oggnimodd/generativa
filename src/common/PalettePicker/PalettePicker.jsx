@@ -24,7 +24,7 @@ const PalettePicker = () => {
     setShowList(false);
   };
 
-  useOnClickOutside(pickerRef, closeList);
+  useOnClickOutside(pickerRef, closeList, showList);
 
   return (
     <PalettePickerWrapper>
