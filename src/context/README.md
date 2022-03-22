@@ -1,1 +1,0 @@
-# global state management and react context

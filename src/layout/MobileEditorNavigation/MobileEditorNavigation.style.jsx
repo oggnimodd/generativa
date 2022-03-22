@@ -34,6 +34,7 @@ export const IconWrapper = styled.div`
 
 export const Label = styled.div`
   ${tw`
-    text-sm
+    text-sm 
+    capitalize
   `}
 `;
