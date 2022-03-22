@@ -5,6 +5,7 @@ import { canvasSelector } from '../../store/useCanvasStore';
 import SquaresCell from './SquaresCell';
 import Canvas from '../../common/Canvas';
 import { randomFromArray, randomFromNumber } from '../../util/random';
+import CanvasRow from '../../common/CanvasRows/CanvasRows';
 
 const alignment = [
   'start',
@@ -75,17 +76,11 @@ const Squares = () => {
   return useMemo(() => {
     return (
       <Canvas>
-        {
-          cellsData.map(({ ...data }) => {
-            return (
-              <SquaresCell
-                key={short.generate()}
-                {...data}
-                size={size}
-              />
-            );
-          })
-        }
+        <CanvasRow
+          cellsData={cellsData}
+          size={size}
+          Cell={SquaresCell}
+        />
       </Canvas>
     );
   }, [size, rows, cols, activePalette.length, refreshTimeStamp]);

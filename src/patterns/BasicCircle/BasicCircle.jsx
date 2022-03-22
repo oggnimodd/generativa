@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import short from 'short-uuid';
 import { settingsSelector } from '../../store/useSettingsStore';
 import { canvasSelector } from '../../store/useCanvasStore';
 import BasicCircleCell from './BasicCircleCell';
 import Canvas from '../../common/Canvas';
 import { randomFromArray, randomFromNumber } from '../../util/random';
 import CanvasBackground from '../../common/CanvasBackground/CanvasBackground';
+import CanvasRow from '../../common/CanvasRows/CanvasRows';
 
 const translate = ['0', '-50%'];
 
@@ -42,17 +42,11 @@ const BasicCircle = () => {
     return (
       <Canvas>
         <CanvasBackground />
-        {
-          cellsData.map(({ ...data }) => {
-            return (
-              <BasicCircleCell
-                key={short.generate()}
-                {...data}
-                size={size}
-              />
-            );
-          })
-        }
+        <CanvasRow
+          cellsData={cellsData}
+          size={size}
+          Cell={BasicCircleCell}
+        />
       </Canvas>
     );
   }, [size, rows, cols, activePalette.length, refreshTimeStamp]);

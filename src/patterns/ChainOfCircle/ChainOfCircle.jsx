@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import short from 'short-uuid';
 import { settingsSelector } from '../../store/useSettingsStore';
 import { canvasSelector } from '../../store/useCanvasStore';
 import ChainOfCircleCell from './ChainOfCircleCell';
 import Canvas from '../../common/Canvas';
 import { randomFromArray, randomFromNumber } from '../../util/random';
 import CanvasBackground from '../../common/CanvasBackground/CanvasBackground';
+import CanvasRow from '../../common/CanvasRows/CanvasRows';
 
 const rotation = [0, 90, 180, 270];
 
@@ -69,17 +69,11 @@ const ChainOfCircle = () => {
     return (
       <Canvas>
         <CanvasBackground />
-        {
-          cellsData.map(({ ...data }) => {
-            return (
-              <ChainOfCircleCell
-                key={short.generate()}
-                {...data}
-                size={size}
-              />
-            );
-          })
-        }
+        <CanvasRow
+          cellsData={cellsData}
+          size={size}
+          Cell={ChainOfCircleCell}
+        />
       </Canvas>
     );
   }, [size, rows, cols, activePalette.length, refreshTimeStamp]);

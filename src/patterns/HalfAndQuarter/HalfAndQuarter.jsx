@@ -7,6 +7,7 @@ import Canvas from '../../common/Canvas';
 import {
   randomFromArray, randomFromNumber, recursiveArrayIndex,
 } from '../../util/random';
+import CanvasRow from '../../common/CanvasRows/CanvasRows';
 
 const translateList = ['0%', '-50%'];
 
@@ -43,17 +44,11 @@ const HalfAndQuarter = () => {
   return useMemo(() => {
     return (
       <Canvas>
-        {
-          cellsData.map(({ ...data }) => {
-            return (
-              <HalfAndQuarterCell
-                key={short.generate()}
-                {...data}
-                size={size}
-              />
-            );
-          })
-        }
+        <CanvasRow
+          cellsData={cellsData}
+          size={size}
+          Cell={HalfAndQuarterCell}
+        />
       </Canvas>
     );
   }, [size, rows, cols, activePalette.length, refreshTimeStamp]);

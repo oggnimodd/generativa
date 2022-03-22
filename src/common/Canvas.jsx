@@ -6,10 +6,11 @@ export const StyledCanvas = styled.div`
     absolute 
     left-0
     top-0
+    select-none 
     flex 
-    flex-wrap 
-    select-none
+    flex-wrap
   `}
+
 `;
 
 const Canvas = ({ children, style, ...rest }) => {

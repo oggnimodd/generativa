@@ -1,11 +1,11 @@
 import React, { useMemo } from 'react';
-import short from 'short-uuid';
 import { settingsSelector } from '../../store/useSettingsStore';
 import { canvasSelector } from '../../store/useCanvasStore';
 import SquareAndCircleCell from './SquareAndCircleCell';
 import Canvas from '../../common/Canvas';
 import { randomFromArray, randomFromNumber, recursiveArrayIndex } from '../../util/random';
 import CanvasBackground from '../../common/CanvasBackground/CanvasBackground';
+import CanvasRow from '../../common/CanvasRows/CanvasRows';
 
 const quadrans = [0, 1, 3, 2, 0, 1, 3, 2];
 
@@ -81,17 +81,11 @@ const SquareAndCircle = () => {
     return (
       <Canvas>
         <CanvasBackground />
-        {
-          cellsData.map(({ ...data }) => {
-            return (
-              <SquareAndCircleCell
-                key={short.generate()}
-                {...data}
-                size={size}
-              />
-            );
-          })
-        }
+        <CanvasRow
+          cellsData={cellsData}
+          size={size}
+          Cell={SquareAndCircleCell}
+        />
       </Canvas>
     );
   }, [size, rows, cols, activePalette.length, refreshTimeStamp]);

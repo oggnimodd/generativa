@@ -6,6 +6,7 @@ import { settingsSelector } from '../../store/useSettingsStore';
 import { canvasSelector } from '../../store/useCanvasStore';
 import { randomFromArray, randomFromNumber } from '../../util/random';
 import CanvasBackground from '../../common/CanvasBackground/CanvasBackground';
+import CanvasRow from '../../common/CanvasRows/CanvasRows';
 
 const direction = [1, -1];
 const getDirection = () => {
@@ -70,16 +71,11 @@ const Scribble = () => {
           }}
         >
           <CanvasBackground />
-          {
-            cellsData.map((data) => {
-              return (
-                <ScribbleCell
-                  key={short.generate()}
-                  {...data}
-                />
-              );
-            })
-          }
+          <CanvasRow
+            size={cellSize}
+            cellsData={cellsData}
+            Cell={ScribbleCell}
+          />
         </Canvas>
       </>
     );

@@ -6,6 +6,7 @@ import ThreeCirclesCell from './ThreeCirclesCell';
 import Canvas from '../../common/Canvas';
 import { randomFromArray, randomFromNumber } from '../../util/random';
 import { shuffleArray } from '../../util/shuffleArray';
+import CanvasRow from '../../common/CanvasRows/CanvasRows';
 
 const getSizes = (size) => {
   const sizes = [size];
@@ -65,17 +66,11 @@ const ThreeCircles = () => {
   return useMemo(() => {
     return (
       <Canvas>
-        {
-          cellsData.map(({ ...data }) => {
-            return (
-              <ThreeCirclesCell
-                key={short.generate()}
-                {...data}
-                size={size}
-              />
-            );
-          })
-        }
+        <CanvasRow
+          cellsData={cellsData}
+          size={size}
+          Cell={ThreeCirclesCell}
+        />
       </Canvas>
     );
   }, [size, rows, cols, activePalette.length, refreshTimeStamp]);

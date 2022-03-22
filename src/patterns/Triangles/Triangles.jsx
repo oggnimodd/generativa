@@ -8,6 +8,7 @@ import {
   randomFromArray, randomFromNumber, recursiveArrayIndex,
 } from '../../util/random';
 import CanvasBackground from '../../common/CanvasBackground/CanvasBackground';
+import CanvasRow from '../../common/CanvasRows/CanvasRows';
 
 const rotate = [
   0,
@@ -55,16 +56,11 @@ const Triangles = () => {
       <>
         <Canvas>
           <CanvasBackground />
-          {
-            cellsData.map((data) => {
-              return (
-                <TrianglesCell
-                  key={short.generate()}
-                  {...data}
-                />
-              );
-            })
-          }
+          <CanvasRow
+            cellsData={cellsData}
+            Cell={TrianglesCell}
+            size={cellSize}
+          />
         </Canvas>
       </>
     );

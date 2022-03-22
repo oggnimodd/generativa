@@ -1,5 +1,4 @@
 import React, { useMemo } from 'react';
-import short from 'short-uuid';
 import { settingsSelector } from '../../store/useSettingsStore';
 import { canvasSelector } from '../../store/useCanvasStore';
 import KanaCell from './KanaCell';
@@ -7,6 +6,7 @@ import Canvas from '../../common/Canvas';
 import { randomFromArray, randomFromNumber } from '../../util/random';
 import CanvasBackground from '../../common/CanvasBackground/CanvasBackground';
 import { kana } from '../../data/kanaChar';
+import CanvasRow from '../../common/CanvasRows/CanvasRows';
 
 const rotation = [0, 90, 180, 270];
 
@@ -41,17 +41,11 @@ const Kana = () => {
     return (
       <Canvas>
         <CanvasBackground />
-        {
-          cellsData.map(({ ...data }) => {
-            return (
-              <KanaCell
-                key={short.generate()}
-                {...data}
-                size={size}
-              />
-            );
-          })
-        }
+        <CanvasRow
+          cellsData={cellsData}
+          size={size}
+          Cell={KanaCell}
+        />
       </Canvas>
     );
   }, [size, rows, cols, activePalette.length, refreshTimeStamp]);
