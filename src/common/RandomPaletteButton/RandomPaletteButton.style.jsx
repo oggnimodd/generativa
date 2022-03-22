@@ -12,6 +12,8 @@ export const RandomPaletteButtonWrapper = styled.button`
     text-primary 
     text-sm 
     font-semibold
+    ml-auto
+    md:ml-0
   `}
 
   p {
