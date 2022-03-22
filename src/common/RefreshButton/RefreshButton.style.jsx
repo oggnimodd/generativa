@@ -33,6 +33,8 @@ export const RefreshButtonWrapper = styled.button`
     h-[55px] 
     bg-accent  
     z-[100]
+    hidden
+    md:block
   `}
 
   box-shadow: rgba(1, 1, 7, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.712) 0px 8px 16px -8px;

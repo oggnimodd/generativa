@@ -4,6 +4,7 @@ import Sidebar from '../../layout/Sidebar/Sidebar';
 import CanvasArea from '../../layout/CanvasArea/CanvasArea';
 import KeyBindings from '../../common/KeyBindings';
 import RefreshButton from '../../common/RefreshButton/RefreshButton';
+import BottomBar from '../../layout/BottomBar/BottomBar';
 
 const Editor = () => {
   const [headerHeight, setHeaderHeight] = useState();
@@ -20,6 +21,7 @@ const Editor = () => {
       <Sidebar />
       <CanvasArea />
       <RefreshButton />
+      <BottomBar />
     </EditorWrapper>
   );
 };

@@ -57,7 +57,7 @@ const CanvasArea = () => {
 
         resizeRef.current = setTimeout(() => {
           getCanvasSize();
-        }, 200);
+        }, 300);
       }
     };
 
