@@ -11,7 +11,7 @@ export const ButtonsWrapper = styled.div`
   `}
 `;
 
-export const Button = styled.div`
+export const Button = styled.button`
   ${tw`
     text-3xl 
     rounded-full

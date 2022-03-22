@@ -1,6 +1,8 @@
 import React from 'react';
+import { Switch, Case } from 'react-if';
 import { Panel } from './BottomBar.style';
 import MobileEditorButtons from '../../common/MobileEditorButtons/MobileEditorButtons';
+import MobilePaletteControl from '../MobilePaletteControl/MobilePaletteControl';
 
 const BottomBarPanel = ({ activeTab, resetActiveTab }) => {
   if(!activeTab) return null;
@@ -11,7 +13,23 @@ const BottomBarPanel = ({ activeTab, resetActiveTab }) => {
         activeTab={activeTab}
         resetActiveTab={resetActiveTab}
       />
-      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dolore, ut.</p>
+
+      {/* Todo : make this a loop */}
+      <Switch>
+        <Case condition={activeTab === 'pattern'}>
+          <MobilePaletteControl />
+        </Case>
+        <Case condition={activeTab === 'tiles'}>
+          Tiles
+        </Case>
+        <Case condition={activeTab === 'colors'}>
+          Colors
+        </Case>
+        <Case condition={activeTab === 'palette'}>
+          Palette
+        </Case>
+      </Switch>
+
     </Panel>
   );
 };

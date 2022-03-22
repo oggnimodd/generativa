@@ -15,6 +15,7 @@ export const NavItem = styled.li`
     justify-center 
     items-center 
     py-2
+    cursor-pointer
   `}
 
   &.tab-active {

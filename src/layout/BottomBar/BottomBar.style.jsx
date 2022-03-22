@@ -9,12 +9,14 @@ export const BottomBarWrapper = styled.div`
     bg-primary
     py-1 
     w-full 
+    z-[900]
   `}
 `;
 
 export const Panel = styled.div`
   ${tw`
     w-full 
-    bg-primary
+    bg-primary 
+    py-4
   `}
 `;
