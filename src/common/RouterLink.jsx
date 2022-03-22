@@ -9,7 +9,7 @@ const scrollToTop = (callback = () => {}) => {
 
 export const NavLink = (props) => {
   const {
-    children, closeNavbar, handleClick, ...rest
+    children, handleClick, ...rest
   } = props;
 
   return (

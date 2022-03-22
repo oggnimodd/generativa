@@ -50,7 +50,7 @@ export const NavItemsMobile = styled(Wrapper)`
     w-full
     bg-primary
     pt-2
-    z-50
+    z-[1000]
   `}
 
   transition : opacity ease-in-out 200ms;

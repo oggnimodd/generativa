@@ -5,16 +5,17 @@ export const CanvasAreaWrapper = styled.div`
     flex 
     w-full 
     flex 
-    items-center 
-    justify-center
+    justify-center 
     h-full 
-    overflow-auto   
+    overflow-auto
+    py-10   
   `}
 `;
 
 export const CanvasPreview = styled.div`
   ${tw`
-    w-[500px]
+    w-[95%]
+    md:(w-[500px] min-w-[500px])
     relative 
   `}
 `;

@@ -12,6 +12,7 @@ import SquareAndCircle from '../../patterns/SquareAndCircle/SquareAndCircle';
 import Triangles from '../../patterns/Triangles/Triangles';
 import ThreeCircles from '../../patterns/ThreeCircles/ThreeCircles';
 import Squares from '../../patterns/Squares/Squares';
+import { breakpoints } from '../../constants/breakpoints';
 
 const CanvasArea = () => {
   // Method
@@ -26,24 +27,45 @@ const CanvasArea = () => {
 
   // Local
   const canvasPreviewRef = useRef();
+  const resizeRef = useRef();
 
   useLayoutEffect(() => {
-    const { width } = canvasPreviewRef.current.getBoundingClientRect();
-    updateWidth(width);
-    updateScale(outputWidth / width);
+    const getCanvasSize = () => {
+      const { width } = canvasPreviewRef.current.getBoundingClientRect();
+      updateWidth(width);
+      updateScale(outputWidth / width);
 
-    // Preview dimension
-    const previewTileSize = width / cols;
-    const previewHeight = previewTileSize * rows;
-    canvasPreviewRef.current.style.height = `${previewHeight}px`;
+      // Preview dimension
+      const previewTileSize = width / cols;
+      const previewHeight = previewTileSize * rows;
+      canvasPreviewRef.current.style.height = `${previewHeight}px`;
 
-    // Output dimension
-    const outputTileSize = width / cols;
-    const outputHeight = outputTileSize * rows;
-    const outputCanvas = document.querySelector('.canvas').style;
+      // Output dimension
+      const outputTileSize = width / cols;
+      const outputHeight = outputTileSize * rows;
+      const outputCanvas = document.querySelector('.canvas').style;
 
-    outputCanvas.width = `${width}px`;
-    outputCanvas.height = `${outputHeight}px`;
+      outputCanvas.width = `${width}px`;
+      outputCanvas.height = `${outputHeight}px`;
+    };
+
+    getCanvasSize();
+
+    const recalculateCanvasSize = () => {
+      if(window.innerWidth < breakpoints.md) {
+        clearTimeout(resizeRef.current);
+
+        resizeRef.current = setTimeout(() => {
+          getCanvasSize();
+        }, 200);
+      }
+    };
+
+    window.addEventListener('resize', recalculateCanvasSize);
+
+    return () => {
+      window.removeEventListener('resize', recalculateCanvasSize);
+    };
   }, [rows, cols]);
 
   return (
