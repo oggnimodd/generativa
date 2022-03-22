@@ -52,12 +52,5 @@ export const PatternItem = styled.div`
     ${tw`
       text-accent
     `}
-
-    ${PatternImage}{
-      ${tw`
-        border-2 
-        border-accent
-      `}
-    }
   }
 `;

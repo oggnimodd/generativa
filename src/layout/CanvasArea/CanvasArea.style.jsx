@@ -16,7 +16,8 @@ export const CanvasPreview = styled.div`
   ${tw`
     mx-auto
     w-[95%]
-    md:(w-[500px] min-w-[500px])
+    md:(w-[500px] 
+      min-w-[500px])
     relative 
   `}
 `;

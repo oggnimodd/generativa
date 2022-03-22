@@ -15,7 +15,7 @@ const BottomBar = () => {
   const resetActiveTab = () => setActiveTab('');
 
   return (
-    <BottomBarWrapper>
+    <BottomBarWrapper id="bottom-bar">
       <Wrapper>
         {!activeTab && (
           <>

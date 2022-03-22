@@ -21,12 +21,12 @@ const CanvasArea = () => {
 
   // State
   const outputWidth = canvasSelector('outputWidth');
-  const width = canvasSelector('width');
   const pattern = settingsSelector('pattern');
   const { cols, rows } = settingsSelector('numOfTiles');
 
   // Local
   const canvasPreviewRef = useRef();
+  const canvasAreaRef = useRef();
   const resizeRef = useRef();
 
   useLayoutEffect(() => {
@@ -68,8 +68,30 @@ const CanvasArea = () => {
     };
   }, [rows, cols]);
 
+  // Calculate canvas area height base on bottom bar height on small screen
+  useLayoutEffect(() => {
+    const calculateCanvasAreaHeight = () => {
+      if(window.innerWidth < breakpoints.md) {
+        const bottomBar = document.querySelector('#bottom-bar');
+        const { height } = bottomBar.getBoundingClientRect();
+
+        canvasAreaRef.current.style.height = `calc(100% - ${height}px)`;
+      }else{
+        canvasAreaRef.current.style.height = '100%';
+      }
+    };
+
+    calculateCanvasAreaHeight();
+
+    window.addEventListener('resize', calculateCanvasAreaHeight);
+
+    return () => {
+      window.removeEventListener('resize', calculateCanvasAreaHeight);
+    };
+  }, []);
+
   return (
-    <CanvasAreaWrapper>
+    <CanvasAreaWrapper ref={canvasAreaRef}>
       <CanvasPreview
         ref={canvasPreviewRef}
       >
