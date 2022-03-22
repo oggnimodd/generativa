@@ -13,7 +13,7 @@ import {
 import useOnClickOutside from '../../hooks/useClickOutside';
 
 const ColorPicker = ({
-  id, color: initialColor, removeColor, changeColor,
+  id, color: initialColor, removeColor, changeColor, disableRemoveButton,
 }) => {
   const [color, setColor] = useState(initialColor);
   const [open, setOpen] = useState(false);
@@ -73,9 +73,13 @@ const ColorPicker = ({
           pointerEvents: open ? 'none' : 'auto',
         }}
       >
-        <RemoveColorButton onClick={() => removeColor(id)}>
-          <AiOutlineClose />
-        </RemoveColorButton>
+        {
+          !disableRemoveButton && (
+          <RemoveColorButton onClick={() => removeColor(id)}>
+            <AiOutlineClose />
+          </RemoveColorButton>
+          )
+        }
       </Item>
 
       {

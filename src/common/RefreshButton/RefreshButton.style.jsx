@@ -31,7 +31,8 @@ export const RefreshButtonWrapper = styled.button`
     rounded-full 
     w-[55px]
     h-[55px] 
-    bg-accent 
+    bg-accent  
+    z-[100]
   `}
 
   box-shadow: rgba(1, 1, 7, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.712) 0px 8px 16px -8px;

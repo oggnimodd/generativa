@@ -20,7 +20,7 @@ const PaletteControl = () => {
       <PalettePicker />
       <RandomPaletteButton onClick={applyRandomPalette}>
         <BsDice5 />
-        <p>Random Palette</p>
+        <p>Random Palette <b>(C)</b></p>
       </RandomPaletteButton>
     </>
   );

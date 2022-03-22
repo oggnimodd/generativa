@@ -12,11 +12,15 @@ const ColorsControl = () => {
   const removeColor = settingsMethod('removeColor');
   const changeColor = settingsMethod('changeColor');
 
-  // statstate
+  // global state
   const colors = settingsSelector('activePalette');
   const maxColors = settingsSelector('maxColors');
+  const minColors = settingsSelector('minColors');
   const pattern = settingsSelector('pattern');
   const paletteTimeStamp = settingsSelector('paletteTimeStamp');
+
+  // dont let user delete a color when it reaches the min colors
+  const disableRemoveButton = minColors === colors.length;
 
   // this memoization  prevent rerendering from changing individual color.
   // to show color change in the individual color, need to use local state on every item
@@ -33,6 +37,7 @@ const ColorsControl = () => {
                 id={id}
                 removeColor={removeColor}
                 changeColor={(e) => changeColor(e, id)}
+                disableRemoveButton={disableRemoveButton}
               />
             );
           })

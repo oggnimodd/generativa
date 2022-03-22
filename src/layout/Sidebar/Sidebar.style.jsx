@@ -7,8 +7,11 @@ export const SidebarWrapper = styled.div`
     h-full
     px-6
     py-2 
-    flex 
-    flex-col 
-    gap-y-5
+    hidden
+    md:(
+      flex 
+      flex-col 
+      gap-y-5
+    )
   `}
 `;
