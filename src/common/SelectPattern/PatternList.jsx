@@ -19,7 +19,7 @@ const PatternList = ({
         >
           <PatternItemThumbnail>
             <img
-              src={`/thumbnails/${item.name}.png`}
+              src={`/thumbnails-70/${item.name}.png`}
               alt="Item"
             />
           </PatternItemThumbnail>

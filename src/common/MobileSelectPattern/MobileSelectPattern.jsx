@@ -25,7 +25,7 @@ const MobileSelectPattern = ({ options }) => {
               </PatternName>
               <PatternImage>
                 <img
-                  src={`/thumbnails/${item.name}.png`}
+                  src={`/thumbnails-100/${item.name}.png`}
                   alt="Item"
                 />
               </PatternImage>
