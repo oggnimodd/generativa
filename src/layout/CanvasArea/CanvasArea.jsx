@@ -68,7 +68,7 @@ const CanvasArea = () => {
     };
   }, [rows, cols]);
 
-  // Calculate canvas area height base on bottom bar height on small screen
+  // Calculate canvas area height based on bottom bar height on small screen
   useLayoutEffect(() => {
     const calculateCanvasAreaHeight = () => {
       if(window.innerWidth < breakpoints.md) {

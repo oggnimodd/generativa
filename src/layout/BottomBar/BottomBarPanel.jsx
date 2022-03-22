@@ -3,6 +3,7 @@ import { Switch, Case } from 'react-if';
 import { Panel } from './BottomBar.style';
 import MobileEditorButtons from '../../common/MobileEditorButtons/MobileEditorButtons';
 import MobilePaletteControl from '../MobilePaletteControl/MobilePaletteControl';
+import MobileTilesControl from '../MobileTilesControl/MobileTilesControl';
 
 const BottomBarPanel = ({ activeTab, resetActiveTab }) => {
   if(!activeTab) return null;
@@ -20,7 +21,7 @@ const BottomBarPanel = ({ activeTab, resetActiveTab }) => {
           <MobilePaletteControl />
         </Case>
         <Case condition={activeTab === 'tiles'}>
-          Tiles
+          <MobileTilesControl />
         </Case>
         <Case condition={activeTab === 'colors'}>
           Colors
