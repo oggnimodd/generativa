@@ -1,17 +1,15 @@
 import React from 'react';
 import { PanelHeader } from '../../common/MobilePanelHeader';
-import { PaletteControlWrapper } from './MobilePaletteControl.style';
-import MobileSelectPattern from '../../common/MobileSelectPattern/MobileSelectPattern';
-import { patterns } from '../../config/patterns';
+import MobilePalettePicker from '../../common/MobilePalettePicker/MobilePalettePicker';
+import RandomPaletteButton from '../../common/RandomPaletteButton/RandomPaletteButton';
 
 const MobilePaletteControl = () => {
   return (
-    <PaletteControlWrapper>
-      <PanelHeader>
-        Choose Pattern
-      </PanelHeader>
-      <MobileSelectPattern options={patterns} />
-    </PaletteControlWrapper>
+    <div>
+      <PanelHeader>Choose Palette</PanelHeader>
+      <MobilePalettePicker />
+      <RandomPaletteButton />
+    </div>
   );
 };
 

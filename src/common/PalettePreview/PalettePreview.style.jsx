@@ -3,7 +3,9 @@ import tw, { styled } from 'twin.macro';
 export const PalettePreviewWrapper = styled.div`
   ${tw`
     flex
-    w-auto
+    w-auto 
+    mr-5
+    md:mr-0
   `}
 
 

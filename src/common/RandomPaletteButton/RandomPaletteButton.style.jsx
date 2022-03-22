@@ -1,6 +1,6 @@
 import tw, { styled } from 'twin.macro';
 
-export const RandomPaletteButton = styled.button`
+export const RandomPaletteButtonWrapper = styled.button`
   ${tw`
     mt-3
     flex

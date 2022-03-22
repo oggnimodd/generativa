@@ -2,6 +2,7 @@ import React from 'react';
 import { BiRefresh } from 'react-icons/bi';
 import { RefreshButtonWrapper, Icon, RefreshToolTip } from './RefreshButton.style';
 import { settingsMethod } from '../../store/useSettingsStore';
+import { ShortCutLetter } from '../ShortCutLetter';
 
 const RefreshButton = () => {
   const refreshPattern = settingsMethod('refreshPattern');
@@ -11,7 +12,7 @@ const RefreshButton = () => {
       <Icon>
         <BiRefresh />
         <RefreshToolTip>
-          Refresh (<b>R</b>)
+          Refresh (<ShortCutLetter>R</ShortCutLetter>)
         </RefreshToolTip>
       </Icon>
     </RefreshButtonWrapper>

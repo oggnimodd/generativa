@@ -2,9 +2,10 @@ import React from 'react';
 import { Switch, Case } from 'react-if';
 import { Panel } from './BottomBar.style';
 import MobileEditorButtons from '../../common/MobileEditorButtons/MobileEditorButtons';
-import MobilePaletteControl from '../MobilePaletteControl/MobilePaletteControl';
+import MobilePatternControl from '../MobilePatternControl/MobilePatternControl';
 import MobileTilesControl from '../MobileTilesControl/MobileTilesControl';
 import MobileColorsControl from '../MobileColorsControl/MobileColorsControl';
+import MobilePaletteControl from '../MobilePaletteControl/MobilePaletteControl';
 
 const BottomBarPanel = ({ activeTab, resetActiveTab }) => {
   if(!activeTab) return null;
@@ -19,7 +20,7 @@ const BottomBarPanel = ({ activeTab, resetActiveTab }) => {
       {/* Todo : make this a loop */}
       <Switch>
         <Case condition={activeTab === 'pattern'}>
-          <MobilePaletteControl />
+          <MobilePatternControl />
         </Case>
         <Case condition={activeTab === 'tiles'}>
           <MobileTilesControl />
@@ -28,7 +29,7 @@ const BottomBarPanel = ({ activeTab, resetActiveTab }) => {
           <MobileColorsControl />
         </Case>
         <Case condition={activeTab === 'palette'}>
-          Palette
+          <MobilePaletteControl />
         </Case>
       </Switch>
 
