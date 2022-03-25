@@ -5,6 +5,9 @@ export const Button = styled.button`
     px-3 
     py-1 
     bg-accent
-    text-primary
+    text-primary 
+    flex 
+    items-center 
+    font-semibold
   `}
 `;
