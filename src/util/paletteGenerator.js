@@ -14,7 +14,10 @@ export const generatePalette = () => {
   // Removing # because colorsheme expects RRGGBB format
   const baseColor = randomColor().slice(1);
 
-  const schemeOption = randomFromArray(schemeOptions);
+  // Mono only return four colors
+  const schemeOption = minColors > 4
+    ? randomFromArray(schemeOptions.slice(1))
+    : randomFromArray(schemeOptions);
   const variant = randomFromArray(variants);
 
   let palette = scheme
