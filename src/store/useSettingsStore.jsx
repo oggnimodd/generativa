@@ -19,8 +19,8 @@ const initialSettings = {
   activePalette: palette.default,
   paletteTimeStamp: epochTime(),
   refreshTimeStamp: epochTime(),
-  minColors: numOfColors.max,
-  maxColors: numOfColors.min,
+  minColors: numOfColors.min,
+  maxColors: numOfColors.max,
   paletteList: palette.list,
 };
 
