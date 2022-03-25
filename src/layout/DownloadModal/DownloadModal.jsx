@@ -139,7 +139,7 @@ const DownloadModal = ({ hideModal }) => {
             </InputSizeError>
           </SizeOptionWrapper>
           <DownloadButton
-            loading={loading}
+            isLoading={loading}
             onClick={onDownloadButtonClicked}
           >
             {

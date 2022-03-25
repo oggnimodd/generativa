@@ -185,7 +185,7 @@ export const DownloadButton = styled.button`
   `}
 
   span{
-    ${({ loading }) => loading && tw`opacity-0`}
+    ${({ isLoading }) => isLoading && tw`opacity-0`}
   }
 
 `;
