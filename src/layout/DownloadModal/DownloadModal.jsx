@@ -17,6 +17,7 @@ import {
   InputSizeError,
   DownloadButton,
   DownloadLoadingIndicator,
+  SizeOptionWrapper,
 } from './DownloadModal.style';
 import useCanvasStore from '../../store/useCanvasStore';
 
@@ -91,8 +92,10 @@ const DownloadModal = ({ hideModal }) => {
   };
 
   const onDownloadButtonClicked = () => {
-    setLoading(true);
-    !sizeError && download(outputWidth, fileFormat, setLoading);
+    if(!sizeError) {
+      setLoading(true);
+      download(outputWidth, fileFormat, setLoading);
+    }
   };
 
   return (
@@ -119,7 +122,7 @@ const DownloadModal = ({ hideModal }) => {
               })}
             </FileFormatList>
           </div>
-          <div>
+          <SizeOptionWrapper>
             <OptionHeader>Width</OptionHeader>
             <SizeInputWrapper>
               <input
@@ -130,14 +133,11 @@ const DownloadModal = ({ hideModal }) => {
               />
               <Unit>px</Unit>
             </SizeInputWrapper>
-            {
-              sizeError && (
-                <InputSizeError>
-                  Input a number between {MIN_WIDTH} and {MAX_WIDTH}
-                </InputSizeError>
-              )
-            }
-          </div>
+
+            <InputSizeError sizeError={sizeError}>
+              Input a number between {MIN_WIDTH} and {MAX_WIDTH}
+            </InputSizeError>
+          </SizeOptionWrapper>
           <DownloadButton
             loading={loading}
             onClick={onDownloadButtonClicked}

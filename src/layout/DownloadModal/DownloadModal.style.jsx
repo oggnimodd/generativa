@@ -60,7 +60,6 @@ export const ModalContent = styled.div`
       rounded-sm 
       flex 
       flex-col 
-      gap-y-4 
       relative
   `}
 `;
@@ -76,7 +75,8 @@ export const OptionHeader = styled.div`
 export const FileFormatList = styled.ul`
   ${tw`
     flex   
-    select-none
+    select-none 
+    mb-4
   `}
 `;
 
@@ -98,10 +98,16 @@ export const FileFormatItem = styled.li`
   }
 `;
 
+export const SizeOptionWrapper = styled.div`
+  ${tw`
+    relative
+  `}
+`;
+
 export const SizeInputWrapper = styled.div`
   ${tw`
-      relative 
       inline 
+      relative
   `}
 
   input{
@@ -135,11 +141,15 @@ export const Unit = styled.div`
 
 export const InputSizeError = styled.div`
   ${tw`
-    absolute
     text-[#F78F9A] 
     w-full
-    mt-1
+    mt-1 
+    text-sm
+    opacity-0
+    mb-4
   `}
+
+  ${({ sizeError }) => sizeError && tw`opacity-100`}
 `;
 
 const rotation = keyframes`
@@ -152,7 +162,6 @@ export const DownloadLoadingIndicator = styled.div`
   ${tw`
     absolute
   `}
-
 
   svg{
     ${tw`
@@ -168,7 +177,6 @@ export const DownloadButton = styled.button`
     py-1 
     bg-accent
     text-primary 
-    mt-5
     self-start 
     w-[130px]
     flex 
