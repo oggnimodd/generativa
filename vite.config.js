@@ -1,13 +1,13 @@
-// vite.config.json
 import { defineConfig } from 'vite';
-import reactRefresh from '@vitejs/plugin-react-refresh';
-import macrosPlugin from 'vite-plugin-babel-macros';
+import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [reactRefresh(), macrosPlugin()],
-  define: {
-    'process.platform': JSON.stringify('win32'),
-    'process.env': {},
-  },
+  plugins: [
+    react({
+      babel: {
+        plugins: ['babel-plugin-macros', 'babel-plugin-styled-components'],
+      },
+    }),
+  ],
 });
