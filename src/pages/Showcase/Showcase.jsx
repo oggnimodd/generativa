@@ -3,14 +3,14 @@ import Masonry from 'react-masonry-css';
 import { ShowcaseWrapper } from './Showcase.style';
 import { breakpoints } from '../../constants/breakpoints';
 
-const modules = import.meta.globEager('../../../showcases/*.png');
-const images = Object.keys(modules);
+const modules = import.meta.globEager('../../../public/showcases/*.png');
+const images = Object.keys(modules).map((item) => {
+  return item.replace('../../../public/', '');
+});
 
 const {
   sm,
   md,
-  lg,
-  xl,
 } = breakpoints;
 
 const masonryBreakpoints = {
@@ -31,7 +31,7 @@ const Showcase = () => {
           images?.length > 0 && images.map((i) => {
             return (
               <img
-                src={i}
+                src={`/${i}`}
                 alt={i}
                 key={i}
               />
