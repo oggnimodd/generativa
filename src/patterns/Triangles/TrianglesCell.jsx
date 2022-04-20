@@ -13,9 +13,6 @@ const TrianglesCell = ({
   const cellBackground = useSettingsStore((state) => state.settings.activePalette[1 + cellBackgroundIndex]);
   const triangleColor = useSettingsStore((state) => state.settings.activePalette[1 + triangleColorIndex]);
 
-  const border = `${triangleSize / 2}px solid transparent`;
-  const triangle = `${triangleSize}px solid ${triangleColor}`;
-
   return (
     <Cell
       style={{
@@ -30,17 +27,20 @@ const TrianglesCell = ({
           height: triangleSize,
         }}
       >
-        <div
+        <svg
           style={{
-            width: triangleSize,
-            height: triangleSize,
-            borderRight: border,
-            borderLeft: border,
-            borderBottom: triangle,
             transform: `rotate(${rotation}deg)`,
           }}
+          id="triangle"
+          viewBox={`0 0 ${triangleSize} ${triangleSize}`}
         >
-        </div>
+          <polygon
+            style={{
+              fill: triangleColor,
+            }}
+            points={`${triangleSize / 2} 0, ${triangleSize} ${triangleSize}, 0 ${triangleSize}`}
+          />
+        </svg>
       </TriangleWrapper>
     </Cell>
   );
