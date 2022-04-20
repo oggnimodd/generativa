@@ -45,10 +45,6 @@ const Header = () => {
             <NavItem>Editor</NavItem>
           </NavLink>
 
-          <NavLink exact to="/about">
-            <NavItem>About</NavItem>
-          </NavLink>
-
           <NavLink exact to="/showcase">
             <NavItem>Showcase</NavItem>
           </NavLink>
@@ -59,10 +55,6 @@ const Header = () => {
 
           <NavLink exact to="/">
             <NavItem>Editor</NavItem>
-          </NavLink>
-
-          <NavLink exact to="/about">
-            <NavItem>About</NavItem>
           </NavLink>
 
           <NavLink exact to="/showcase">
