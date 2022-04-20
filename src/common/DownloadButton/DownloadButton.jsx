@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import { AiOutlineDownload } from 'react-icons/ai';
+import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Button } from './DownloadButton.style';
 import DownloadModal from '../../layout/DownloadModal/DownloadModal';
@@ -10,6 +9,22 @@ const DownloadButton = () => {
   if(pathname !== '/') return null;
 
   const [showModal, setShowModal] = useState(false);
+
+  useEffect(() => {
+    const closeModal = (e) => {
+      if (e.key === 'Escape') {
+        setShowModal(false);
+      }
+    };
+
+    if(showModal) {
+      window.addEventListener('keydown', closeModal);
+
+      return () => {
+        window.removeEventListener('keydown', closeModal);
+      };
+    }
+  }, [showModal]);
 
   return (
     <>
