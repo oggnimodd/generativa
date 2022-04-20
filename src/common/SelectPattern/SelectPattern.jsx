@@ -4,8 +4,8 @@ import {
   ActiveValue,
   SelectPatternContainer,
   Icon,
-  PatternListWraper,
-  Scrollbars,
+  PatternListWrapper,
+  ScrollArea,
 } from './SelectPattern.style';
 import useClickOutside from '../../hooks/useClickOutside';
 import PatternList from './PatternList';
@@ -44,22 +44,15 @@ const SelectPattern = ({
 
       {
         open && (
-          <PatternListWraper ref={listRef}>
-            <Scrollbars
-              renderThumbVertical={(props) => (
-                <div
-                  {...props}
-                  className="thumb-vertical"
-                />
-              )}
-            >
-              <PatternList
-                options={options}
-                handleChange={handleChange}
-                value={value}
-              />
-            </Scrollbars>
-          </PatternListWraper>
+        <PatternListWrapper ref={listRef}>
+          <ScrollArea>
+            <PatternList
+              options={options}
+              handleChange={handleChange}
+              value={value}
+            />
+          </ScrollArea>
+        </PatternListWrapper>
         )
       }
 

@@ -1,5 +1,4 @@
 import tw, { styled } from 'twin.macro';
-import { Scrollbars as UnstyledScrollbars } from 'react-custom-scrollbars-2';
 
 export const SelectPatternContainer = styled.div`
   ${tw`
@@ -32,34 +31,43 @@ export const Icon = styled.div`
   ${({ open }) => open && tw`opacity-100`}
 `;
 
-export const PatternListWraper = styled.ul`
+export const PatternListWrapper = styled.div`
   ${tw`
     absolute  
     top-full 
     bg-primary 
-    py-3
     w-full  
     z-50  
-    h-[250px]
-    mt-2
+    pb-4
   `}
+
   box-shadow: rgba(0, 0, 0, 0.801) 0px 3px 8px;
+`;
 
+export const ScrollArea = styled.ul`
+  ${tw`
+    flex 
+    flex-col 
+    gap-y-4
+    h-[250px]
+    overflow-auto 
+    mt-4
+  `}
 
-  /* this line is to style the actual list wrapper from react-custom-scrollbars-2 */
-  & > div > div:nth-of-type(1) {
+  scrollbar-width: thin;
+  scrollbar-color: #04C9B6 transparent;
+
+  ::-webkit-scrollbar {
     ${tw`
-      flex 
-      flex-col 
-      gap-y-4
+      bg-transparent 
+      w-[0.4rem]
     `}
   }
 
-  /* Custom scrollbar */
-  .thumb-vertical {
+  ::-webkit-scrollbar-thumb {
     ${tw`
       bg-accent 
-      rounded-full
+      rounded-[3px]
     `}
   }
 `;
@@ -106,11 +114,4 @@ export const PatternItem = styled.li`
       text-accent
     `}
   }
-`;
-
-export const Scrollbars = styled(UnstyledScrollbars)`
-  ${tw`
-    w-full  
-    h-0
-  `}
 `;
