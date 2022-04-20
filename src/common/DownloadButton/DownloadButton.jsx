@@ -6,7 +6,6 @@ import DownloadModal from '../../layout/DownloadModal/DownloadModal';
 const DownloadButton = () => {
   const { pathname } = useLocation();
   // Only show export button on editor page
-  if(pathname !== '/') return null;
 
   const [showModal, setShowModal] = useState(false);
 
@@ -25,6 +24,8 @@ const DownloadButton = () => {
       };
     }
   }, [showModal]);
+
+  if(pathname !== '/') return null;
 
   return (
     <>
