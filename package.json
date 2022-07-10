@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "gen:showcases && vite build",
+    "build": "npm run gen:showcases && vite build",
     "serve": "vite preview",
     "gen:showcases": "node src/util/generateShowcases.js"
   },
