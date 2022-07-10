@@ -98,6 +98,8 @@ const DownloadModal = ({ hideModal }) => {
     }
   };
 
+  console.log(loading);
+
   return (
     <Portal>
       <ModalWrapper>

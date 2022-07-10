@@ -1,12 +1,9 @@
 import React from 'react';
 import Masonry from 'react-masonry-css';
+import { checkWebPSupport } from 'supports-webp-sync';
 import { ShowcaseWrapper } from './Showcase.style';
 import { breakpoints } from '../../constants/breakpoints';
-
-const modules = import.meta.globEager('../../../public/showcases/*.png');
-const images = Object.keys(modules).map((item) => {
-  return item.replace('../../../public/', '');
-});
+import showcaseImages from '../../constants/showcases.json';
 
 const {
   sm,
@@ -19,6 +16,8 @@ const masonryBreakpoints = {
   [sm]: 1,
 };
 
+const isWebpSupported = checkWebPSupport();
+
 const Showcase = () => {
   return (
     <ShowcaseWrapper>
@@ -28,12 +27,16 @@ const Showcase = () => {
         columnClassName="my-masonry-grid_column"
       >
         {
-          images?.length > 0 && images.map((i) => {
+          showcaseImages?.length > 0 && showcaseImages.map((image) => {
+            const ext = isWebpSupported ? 'webp' : 'png';
+
             return (
               <img
-                src={`/${i}`}
-                alt={i}
-                key={i}
+                width={image.width}
+                height={image.height}
+                src={`/showcases-${ext}/${image.name}.${ext}`}
+                alt={image.name}
+                key={image.name}
               />
             );
           })
